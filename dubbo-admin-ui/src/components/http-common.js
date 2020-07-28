@@ -39,6 +39,7 @@ instance.interceptors.response.use((response) => {
     localStorage.removeItem('token')
     localStorage.removeItem('username')
     Vue.prototype.$notify.error('Authorized failed,please login.')
+    location.href="/#/login"
   } else if (error.response.status >= HttpStatus.BAD_REQUEST) {
     Vue.prototype.$notify.error(error.response.data.message)
   }
